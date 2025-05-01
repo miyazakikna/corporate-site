@@ -1,0 +1,95 @@
+@import '@/styles/variables.scss';
+@import '@/styles/mixins.scss';
+
+.about {
+  background-color: $light-gray;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: $white;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  align-items: center;
+
+  @include respond-to('md') {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.imageWrapper {
+  width: 100%;
+  max-width: 400px;
+
+  @include respond-to('md') {
+    width: 40%;
+  }
+}
+
+.graphicContainer {
+  position: relative;
+  padding-bottom: 100%; // 1:1 aspect ratio
+}
+
+.dropGraphic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.waterDrop {
+  width: 70%;
+  height: 70%;
+  background-color: rgba($primary, 0.2);
+  border-radius: 50% 50% 50% 10%;
+  position: relative;
+  transform: rotate(45deg);
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    top: 10%;
+    left: 10%;
+    background-color: rgba($primary, 0.3);
+    border-radius: 50% 50% 50% 5%;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    top: 20%;
+    left: 20%;
+    background-color: rgba($primary, 0.4);
+    border-radius: 50% 50% 50% 5%;
+  }
+}
+
+.waterRipple {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px dashed rgba($primary, 0.3);
+  animation: rippleEffect 4s infinite linear;
+}

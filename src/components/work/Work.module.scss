@@ -1,0 +1,175 @@
+@import '@/styles/variables.scss';
+@import '@/styles/mixins.scss';
+
+.works {
+  background-color: $white;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: $light-gray;
+    clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+.casesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xxl;
+}
+
+.caseStudy {
+  margin-bottom: $spacing-xl;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.caseContent {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+  box-shadow: $shadow-md;
+  border-radius: $border-radius-md;
+  overflow: hidden;
+  transition: $transition-base;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-lg;
+  }
+
+  @include respond-to('md') {
+    flex-direction: row;
+    align-items: stretch;
+  }
+}
+
+.imageContainer {
+  width: 100%;
+
+  @include respond-to('md') {
+    width: 40%;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 250px;
+
+  @include respond-to('md') {
+    height: 100%;
+  }
+}
+
+.caseImage {
+  object-fit: cover;
+}
+
+.textContent {
+  padding: $spacing-md;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  @include respond-to('md') {
+    padding: $spacing-lg;
+  }
+}
+
+.caseTitle {
+  font-size: $font-size-xlarge;
+  color: $secondary;
+  margin-bottom: $spacing-xs;
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: $primary;
+  }
+}
+
+.clientName {
+  font-size: $font-size-base;
+  margin-bottom: $spacing-sm;
+  color: $dark-gray;
+}
+
+.clientLabel {
+  font-weight: 600;
+}
+
+.tagContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+  margin-bottom: $spacing-sm;
+}
+
+.tag {
+  display: inline-block;
+  background-color: rgba($primary, 0.1);
+  color: $primary;
+  padding: 4px 12px;
+  border-radius: $border-radius-pill;
+  font-size: $font-size-small;
+  font-weight: 500;
+}
+
+.description {
+  margin-bottom: $spacing-md;
+  line-height: 1.6;
+}
+
+.achievementsContainer {
+  margin-top: auto;
+  background-color: $light-gray;
+  padding: $spacing-sm;
+  border-radius: $border-radius-md;
+}
+
+.achievementsTitle {
+  font-size: $font-size-base;
+  font-weight: 700;
+  margin-bottom: $spacing-xs;
+  color: $secondary;
+}
+
+.achievementsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.achievementItem {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: $spacing-xs;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.achievementIcon {
+  color: $primary;
+  margin-right: $spacing-xs;
+  font-weight: bold;
+}
+
+.achievementText {
+  flex: 1;
+}

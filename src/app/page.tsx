@@ -2,8 +2,8 @@
 
 import { Hero } from '@/components/hero/Hero';
 import { About } from '@/components/about/About';
-// import { Services } from '@/components/Services/Services';
-// import { Portfolio } from '@/components/Portfolio/Portfolio';
+import { Service } from '@/components/service/Service';
+import { Work } from '@/components/work/Work';
 // import { Contact } from '@/components/Contact/Contact';
 import { useEffect } from 'react';
 
@@ -18,11 +18,9 @@ export default function Home() {
     <>
       <Hero />
       <About />
-      {/* <Hero />
-
-      <Services />
-      <Portfolio />
-      <Contact /> */}
+      <Service />
+      <Work />
+      {/* <Contact /> */}
     </>
   );
 }

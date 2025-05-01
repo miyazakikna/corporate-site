@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import styles from './Hero.module.scss';
 import { fadeIn, slideUp, buttonHover } from '@/utils/animations';
+import { CtaButton } from '@/components/cta-button/CtaButton';
 
 export const Hero = () => {
   return (
@@ -40,9 +41,15 @@ export const Hero = () => {
             transition={{ delay: 0.8 }}
           >
             <motion.div whileHover='hover' variants={buttonHover}>
-              <Link href='#contact' className={`btn btn-primary ${styles.ctaButton}`}>
+              <CtaButton
+                text="無料相談する"
+                href="#contact"
+                isPrimary={true}
+                className={styles.ctaButton}
+              />
+              {/* <Link href='#contact' className={`btn btn-primary ${styles.ctaButton}`}>
                 無料相談する
-              </Link>
+              </Link> */}
             </motion.div>
           </motion.div>
         </motion.div>

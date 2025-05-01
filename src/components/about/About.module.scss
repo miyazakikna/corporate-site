@@ -38,6 +38,44 @@
   }
 }
 
+.textContent {
+  width: 100%;
+
+  @include respond-to('md') {
+    width: 60%;
+  }
+}
+
+.emphasis {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: $spacing-md;
+  color: $primary;
+}
+
+.valueList {
+  margin-top: $spacing-lg;
+  list-style: none;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: center;
+    margin-bottom: $spacing-sm;
+  }
+}
+
+.valueIcon {
+  color: $primary;
+  font-weight: bold;
+  margin-right: $spacing-sm;
+  font-size: 1.2rem;
+}
+
+.valueText {
+  font-weight: 500;
+}
+
 .graphicContainer {
   position: relative;
   padding-bottom: 100%; // 1:1 aspect ratio
@@ -91,5 +129,55 @@
   height: 100%;
   border-radius: 50%;
   border: 2px dashed rgba($primary, 0.3);
-  animation: rippleEffect 4s infinite linear;
+}
+
+.growthArrow {
+  position: absolute;
+  width: 40%;
+  height: 40%;
+  top: 30%;
+  left: 30%;
+  transform: rotate(-45deg);
+  z-index: 2;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 15%;
+    height: 100%;
+    background-color: $primary;
+    transform: translateX(-50%);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 60%;
+    height: 60%;
+    border-top: 15px solid $primary;
+    border-right: 15px solid $primary;
+    border-left: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    transform: translateX(-50%) rotate(45deg);
+  }
+}
+
+.ctaButton {
+  margin-top: $spacing-xl;
+  padding: $spacing-sm $spacing-lg;
+  background-color: $primary;
+  color: $white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken($primary, 10%);
+  }
 }

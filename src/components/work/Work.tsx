@@ -2,14 +2,22 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import styles from './Work.module.scss';
-import { slideUp, slideInLeft, slideInRight } from '@/utils/animations';
+import { slideUp } from '@/utils/animations';
 import Image from 'next/image';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export const Work = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+  const navigationPrevRef = useRef(null);
+  const navigationNextRef = useRef(null);
 
   const caseStudies = [
     {
@@ -46,60 +54,89 @@ export const Work = () => {
           実績紹介
         </motion.h2>
 
-        <div className={styles.casesContainer}>
-          {caseStudies.map((caseStudy, index) => (
-            <motion.div
-              key={caseStudy.id}
-              className={styles.caseStudy}
-              initial="hidden"
-              animate={isInView ? 'visible' : 'hidden'}
-              variants={index % 2 === 0 ? slideInLeft : slideInRight}
-              transition={{ delay: 0.2 * index }}
-            >
-              <div className={styles.caseContent}>
-                <div className={styles.imageContainer}>
-                  <div className={styles.imageWrapper}>
-                    <Image
-                      src={caseStudy.imageSrc}
-                      alt={caseStudy.imageAlt}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className={styles.caseImage}
-                    />
+        <motion.div
+          className={styles.sliderContainer}
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+        >
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={30}
+            slidesPerView={1}
+            navigation={{
+              prevEl: navigationPrevRef.current,
+              nextEl: navigationNextRef.current,
+            }}
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 5000, disableOnInteraction: false }}
+            loop={true}
+            onInit={(swiper) => {
+              // @ts-ignore
+              swiper.params.navigation.prevEl = navigationPrevRef.current;
+              // @ts-ignore
+              swiper.params.navigation.nextEl = navigationNextRef.current;
+              swiper.navigation.init();
+              swiper.navigation.update();
+            }}
+            className={styles.swiper}
+          >
+            {caseStudies.map((caseStudy) => (
+              <SwiperSlide key={caseStudy.id} className={styles.slide}>
+                <div className={styles.caseContent}>
+                  <div className={styles.imageContainer}>
+                    <div className={styles.imageWrapper}>
+                      <Image
+                        src={caseStudy.imageSrc}
+                        alt={caseStudy.imageAlt}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className={styles.caseImage}
+                      />
+                    </div>
                   </div>
-                </div>
 
-                <div className={styles.textContent}>
-                  <h3 className={styles.caseTitle}>{caseStudy.title}</h3>
-                  <p className={styles.clientName}>
-                    <span className={styles.clientLabel}>クライアント：</span>
-                    {caseStudy.client}
-                  </p>
+                  <div className={styles.textContent}>
+                    <h3 className={styles.caseTitle}>{caseStudy.title}</h3>
+                    <p className={styles.clientName}>
+                      <span className={styles.clientLabel}>クライアント：</span>
+                      {caseStudy.client}
+                    </p>
 
-                  <div className={styles.tagContainer}>
-                    {caseStudy.tags.map((tag, tagIndex) => (
-                      <span key={tagIndex} className={styles.tag}>{tag}</span>
-                    ))}
-                  </div>
-
-                  <p className={styles.description}>{caseStudy.description}</p>
-
-                  <div className={styles.achievementsContainer}>
-                    <h4 className={styles.achievementsTitle}>成果</h4>
-                    <ul className={styles.achievementsList}>
-                      {caseStudy.achievements.map((achievement, achievementIndex) => (
-                        <li key={achievementIndex} className={styles.achievementItem}>
-                          <span className={styles.achievementIcon}>✓</span>
-                          <span className={styles.achievementText}>{achievement}</span>
-                        </li>
+                    <div className={styles.tagContainer}>
+                      {caseStudy.tags.map((tag, tagIndex) => (
+                        <span key={tagIndex} className={styles.tag}>{tag}</span>
                       ))}
-                    </ul>
+                    </div>
+
+                    <p className={styles.description}>{caseStudy.description}</p>
+
+                    <div className={styles.achievementsContainer}>
+                      <h4 className={styles.achievementsTitle}>成果</h4>
+                      <ul className={styles.achievementsList}>
+                        {caseStudy.achievements.map((achievement, achievementIndex) => (
+                          <li key={achievementIndex} className={styles.achievementItem}>
+                            <span className={styles.achievementIcon}>✓</span>
+                            <span className={styles.achievementText}>{achievement}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          <div className={styles.navigationControls}>
+            <button ref={navigationPrevRef} className={styles.navButton} aria-label="前へ">
+              <ChevronLeft />
+            </button>
+            <button ref={navigationNextRef} className={styles.navButton} aria-label="次へ">
+              <ChevronRight />
+            </button>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

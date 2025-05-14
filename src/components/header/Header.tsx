@@ -57,9 +57,6 @@ export const Header = () => {
               <Link href='#services'>サービス</Link>
             </li>
             <li>
-              <Link href='#portfolio'>実績</Link>
-            </li>
-            <li>
               <Link href='#contact' className={styles.contactBtn}>お問い合わせ</Link>
             </li>
           </ul>
@@ -96,11 +93,6 @@ export const Header = () => {
               <li>
                 <Link href='#services' onClick={() => setIsMobileMenuOpen(false)}>
                   サービス
-                </Link>
-              </li>
-              <li>
-                <Link href='#portfolio' onClick={() => setIsMobileMenuOpen(false)}>
-                  実績
                 </Link>
               </li>
               <li>

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import styles from './About.module.scss';
-import { fadeIn, slideUp, slideInLeft, slideInRight, rippleEffect, scaleUp } from '@/utils/animations';
+import { fadeIn, slideUp, slideInLeft, slideInRight, scaleUp } from '@/utils/animations';
 
 export const About = () => {
   const sectionRef = useRef(null);
@@ -19,7 +19,7 @@ export const About = () => {
           animate={isInView ? 'visible' : 'hidden'}
           variants={slideUp}
         >
-          Ameliorate Your Business
+          ABOUT US
         </motion.h2>
 
         <div className={styles.content}>
@@ -97,7 +97,7 @@ export const About = () => {
                 <span className={styles.valueText}>継続的な改善と成長支援</span>
               </li>
             </ul>
-
+            {/* 
             <motion.div
               initial='hidden'
               animate={isInView ? 'visible' : 'hidden'}
@@ -107,7 +107,7 @@ export const About = () => {
               <button className={styles.ctaButton} onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                 お問い合わせはこちら
               </button>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </div>
       </div>

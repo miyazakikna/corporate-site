@@ -34,23 +34,21 @@ export const Footer = () => {
                 priority
               />
             </Link>
-            <p className={styles.tagline}>
+            {/* <p className={styles.tagline}>
               <span className='amelio-highlight'>改善・向上</span>を軸に、ビジネスに必要な要素をワンストップで支援します
-            </p>
+            </p> */}
           </div>
 
           <div className={styles.footerNav}>
             <div className={styles.navColumn}>
-              <h3 className={styles.navTitle}>ナビゲーション</h3>
               <ul className={styles.navList}>
                 <li><Link href='#about'>会社紹介</Link></li>
                 <li><Link href='#services'>サービス</Link></li>
-                <li><Link href='#works'>実績</Link></li>
                 <li><Link href='#contact'>お問い合わせ</Link></li>
               </ul>
             </div>
 
-            <div className={styles.navColumn}>
+            {/* <div className={styles.navColumn}>
               <h3 className={styles.navTitle}>サービス</h3>
               <ul className={styles.navList}>
                 <li><Link href='#services'>デジタルマーケティング</Link></li>
@@ -58,9 +56,9 @@ export const Footer = () => {
                 <li><Link href='#services'>コンテンツ制作</Link></li>
                 <li><Link href='#services'>ブランディング支援</Link></li>
               </ul>
-            </div>
+            </div> */}
 
-            <div className={styles.navColumn}>
+            {/* <div className={styles.navColumn}>
               <h3 className={styles.navTitle}>お問い合わせ</h3>
               <address className={styles.contactInfo}>
                 <p><strong>住所:</strong> 〒123-4567<br />東京都渋谷区〇〇〇 1-2-3</p>
@@ -85,7 +83,7 @@ export const Footer = () => {
                   </svg>
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -94,8 +92,8 @@ export const Footer = () => {
             &copy; {currentYear} 株式会社Amelio All Rights Reserved.
           </p>
           <div className={styles.footerLinks}>
+            <Link href='/company'>会社概要</Link>
             <Link href='/privacy-policy'>プライバシーポリシー</Link>
-            <Link href='/terms-of-service'>利用規約</Link>
           </div>
         </div>
       </div>

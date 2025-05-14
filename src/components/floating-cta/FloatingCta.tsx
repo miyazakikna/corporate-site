@@ -1,13 +1,16 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import styles from './FloatingCta.module.scss';
 
 export const FloatingCta = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
+  const footerObserverRef = useRef<IntersectionObserver | null>(null);
 
+  // スクロール位置による表示制御
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -22,12 +25,40 @@ export const FloatingCta = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
+    // 初期表示のチェック
+    handleScroll();
+
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // フッター表示による非表示制御
+  useEffect(() => {
+    const footer = document.querySelector('footer');
+    if (!footer) return;
+
+    footerObserverRef.current = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        setIsFooterVisible(entry.isIntersecting);
+      },
+      {
+        rootMargin: '0px 0px 100px 0px',
+        threshold: 0.1,
+      }
+    );
+
+    footerObserverRef.current.observe(footer);
+
+    return () => {
+      if (footerObserverRef.current) {
+        footerObserverRef.current.disconnect();
+      }
+    };
   }, []);
 
   return (
     <AnimatePresence>
-      {isVisible && (
+      {(isVisible && !isFooterVisible) && (
         <motion.div
           className={styles.floatingCta}
           initial={{ y: 100, opacity: 0 }}

@@ -27,6 +27,54 @@
   z-index: 1;
 }
 
+.mainVideoWrap {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  // background: url('/main/main_firstview_background.jpg') no-repeat center/cover;
+  // background-attachment: fixed;
+  z-index: -1;
+
+  &::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: $black;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0.3;
+  }
+
+  .firstViewImage {
+    background: url('/main/main_firstview_background.jpg') no-repeat center/cover;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+  }
+
+  .firstViewBackground {
+    width: 100%;
+    height: 100vh;
+    background: $black;
+  }
+
+  video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
+
 .container {
   @include section-container;
   position: relative;

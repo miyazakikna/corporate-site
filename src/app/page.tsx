@@ -1,13 +1,9 @@
 'use client';
 
-import { Hero } from '@/components/hero/Hero';
-import { About } from '@/components/about/About';
-import { Service } from '@/components/service/Service';
-import { Work } from '@/components/work/Work';
-// import { Contact } from '@/components/Contact/Contact';
+import { Home } from '@/components/home/Home';
 import { useEffect } from 'react';
 
-export default function Home() {
+export default function Top() {
   // フレーマーモーションのアニメーションを滑らかにするためのSSRフィックス
   useEffect(() => {
     const body = document.querySelector('body');
@@ -15,12 +11,6 @@ export default function Home() {
   }, []);
 
   return (
-    <>
-      <Hero />
-      <About />
-      <Service />
-      <Work />
-      {/* <Contact /> */}
-    </>
+    <Home />
   );
 }

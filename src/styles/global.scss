@@ -95,6 +95,10 @@ button {
   @include section-title;
 }
 
+.section-description {
+  @include section-description;
+}
+
 .btn {
   @include button;
 

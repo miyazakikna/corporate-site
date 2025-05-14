@@ -152,6 +152,16 @@
   }
 }
 
+// セクションの説明
+@mixin section-description {
+  font-size: $font-size-base;
+  margin: 0 auto $spacing-lg;
+  padding: 0 $spacing-md;
+  text-align: center;
+  color: $secondary;
+  max-width: 800px;
+}
+
 // アスペクト比を維持する画像コンテナ
 @mixin aspect-ratio($width: 1, $height: 1) {
   position: relative;

@@ -3,7 +3,6 @@ import '@/styles/global.scss'
 import { Header } from '@/components/header/Header';
 import { Footer } from '@/components/footer/Footer';
 import type { Metadata } from 'next';
-import { FloatingCta } from '@/components/floating-cta/FloatingCta';
 
 export const metadata: Metadata = {
   title: '株式会社Amelio - あなたの"挑戦"を、確かな"形"へ',
@@ -21,7 +20,6 @@ export default function RootLayout({
       <body>
         <Header />
         <main>{children}</main>
-        <FloatingCta />
         <Footer />
       </body>
     </html>

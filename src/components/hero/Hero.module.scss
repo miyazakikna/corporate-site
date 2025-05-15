@@ -7,24 +7,59 @@
   min-height: 600px;
   max-height: 900px;
   width: 100%;
-  background-image: url('/images/hero-bg.jpg');
-  background-size: cover;
-  background-position: center;
+  // background-image: url('/main/hero.jpg');
+  // background-size: cover;
+  // background-position: center;
+  // background-attachment: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
   padding-top: 80px;
   overflow: hidden;
+
+  // &::before {
+  //   content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   background-color: rgba(0, 0, 0, 0.4);
+  //   z-index: 1;
+  // }
 }
 
-.overlay {
+.heroImageWrap {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 90%;
+  height: 900px;
+  clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%);
+  z-index: -1;
+  pointer-events: none;
+
+  @include respond-to('xl') {
+    width: 70%;
+  }
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  filter: brightness(0.4);
+}
+
+.heroImageOverlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba($white, 0.85);
-  z-index: 1;
+  background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 70%);
+  z-index: 2;
 }
 
 .mainVideoWrap {
@@ -76,13 +111,12 @@
 }
 
 .container {
-  @include section-container;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   position: relative;
   z-index: 2;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 
   @include respond-to('md') {
     flex-direction: row;
@@ -91,12 +125,11 @@
 }
 
 .content {
-  text-align: center;
+  padding: $spacing-sm;
   max-width: 100%;
 
   @include respond-to('md') {
-    text-align: left;
-    max-width: 50%;
+    padding: $spacing-md;
   }
 }
 
@@ -104,21 +137,31 @@
   font-size: $font-size-xlarge;
   font-weight: 700;
   margin-bottom: $spacing-md;
-  line-height: 1.3;
+  line-height: 1.6;
+  letter-spacing: $spacing-xxs;
+
+  .accent {
+    color: $primary;
+    font-size: $font-size-xxlarge;
+  }
 
   @include respond-to('md') {
     font-size: $font-size-hero;
+    letter-spacing: $spacing-xs;
+
+    .accent {
+      font-size: $font-size-hero-accent;
+    }
   }
 }
 
 .subtitle {
   font-size: $font-size-base;
   font-weight: 500;
-  margin-bottom: $spacing-md;
-  color: $secondary;
 
   @include respond-to('md') {
     font-size: $font-size-large;
+    letter-spacing: $spacing-xxs;
   }
 }
 
@@ -272,7 +315,7 @@
   span {
     font-size: $font-size-small;
     margin-bottom: $spacing-xs;
-    color: $secondary;
+    color: $white;
   }
 }
 

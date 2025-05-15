@@ -26,14 +26,6 @@ export const Hero = () => {
   }, [])
   return (
     <section className={styles.hero}>
-      <Image
-        src='/main/hero.png'
-        alt='株式会社Amelio'
-        width={150}
-        height={40}
-        priority
-      />
-      {/* <div className={styles.overlay}></div> */}
       {/* {
         isVideoView ? (
           !isVideoError ? (
@@ -63,9 +55,9 @@ export const Hero = () => {
             variants={slideUp}
             transition={{ delay: 0.2 }}
           >
-            あなたの<span className='amelio-highlight'>'挑戦'</span>を、
+            あなたの<span className={styles.accent}>挑戦</span>を
             <br />
-            確かな<span className='amelio-highlight'>'形'</span>へ。
+            確かな<span className={styles.accent}>形</span>へ。
           </motion.h1>
 
           <motion.p
@@ -73,20 +65,20 @@ export const Hero = () => {
             variants={slideUp}
             transition={{ delay: 0.4 }}
           >
-            〜 株式会社Amelioは、事業の未来を共に創ります 〜
+            私たちは、事業の未来を共に創ります
           </motion.p>
 
-          <motion.div
+          {/* <motion.div
             className={styles.ctaButtons}
             variants={slideUp}
             transition={{ delay: 0.8 }}
           >
-            {/* <motion.div whileHover='hover' variants={buttonHover}>
+           <motion.div whileHover='hover' variants={buttonHover}>
               <Link href='#contact' className={`btn btn-primary ${styles.ctaButton}`}>
                 無料相談する
               </Link>
-            </motion.div> */}
-          </motion.div>
+            </motion.div>
+          </motion.div> */}
         </motion.div>
 
         {/* <motion.div
@@ -105,6 +97,17 @@ export const Hero = () => {
             <div className={styles.chart}></div>
           </div>
         </motion.div> */}
+      </div>
+
+      <div className={styles.heroImageWrap}>
+        <Image
+          src='/main/hero.jpg'
+          alt='株式会社Amelio'
+          fill
+          className={styles.heroImage}
+          priority
+        />
+        <div className={styles.heroImageOverlay} />
       </div>
 
       <motion.div

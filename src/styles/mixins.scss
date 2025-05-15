@@ -133,12 +133,16 @@
 
 // セクションの見出しスタイル
 @mixin section-title {
-  font-size: $font-size-xxlarge;
+  font-size: $font-size-xlarge;
   font-weight: 700;
   margin-bottom: $spacing-lg;
   text-align: center;
   color: $secondary;
   position: relative;
+
+  @include respond-to('md') {
+    font-size: $font-size-xxlarge;
+  }
 
   &::after {
     content: '';

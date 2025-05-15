@@ -71,7 +71,7 @@ export const Service = () => {
           サービス
         </motion.h2>
 
-        <motion.p
+        {/* <motion.p
           className='section-description'
           initial='hidden'
           animate={isInView ? 'visible' : 'hidden'}
@@ -80,7 +80,7 @@ export const Service = () => {
         >
           株式会社Amelioは、事業の成長に不可欠なサービスをワンストップで提供しています。
           他社にはない「総合的な支援」により、戦略から実行・改善までを一貫してサポートします。
-        </motion.p>
+        </motion.p> */}
 
         <motion.div
           className={styles.servicesGrid}

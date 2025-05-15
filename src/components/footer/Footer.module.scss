@@ -98,16 +98,15 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  align-items: center;
+  @include flex(row, center, center);
 
   li {
-    margin-bottom: $spacing-sm;
-    margin-right: $spacing-xl;
+    margin: 0 $spacing-md $spacing-xl;
 
     a {
       color: rgba($white, 0.8);
       transition: $transition-base;
+      white-space: nowrap;
       position: relative;
       display: inline-block;
 

@@ -186,23 +186,23 @@ button {
   color: $secondary;
 }
 
-// スクロールバーのカスタマイズ
-::-webkit-scrollbar {
-  width: 8px;
-}
+// // スクロールバーのカスタマイズ
+// ::-webkit-scrollbar {
+//   width: 8px;
+// }
 
-::-webkit-scrollbar-track {
-  background: $light-gray;
-}
+// ::-webkit-scrollbar-track {
+//   background: $light-gray;
+// }
 
-::-webkit-scrollbar-thumb {
-  background: $primary;
-  border-radius: $border-radius-pill;
-}
+// ::-webkit-scrollbar-thumb {
+//   background: $primary;
+//   border-radius: $border-radius-pill;
+// }
 
-::-webkit-scrollbar-thumb:hover {
-  background: $primary-dark;
-}
+// ::-webkit-scrollbar-thumb:hover {
+//   background: $primary-dark;
+// }
 
 // Amelioテーマの特別なスタイル
 .amelio-gradient-text {

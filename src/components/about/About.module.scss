@@ -43,9 +43,43 @@
 .imageWrapper {
   width: 100%;
   max-width: 400px;
+  position: relative;
 
   @include respond-to('md') {
     width: 40%;
+  }
+
+  .aboutImageWrap {
+    max-width: 400px;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    position: relative;
+    pointer-events: none;
+    overflow: hidden;
+
+    @include respond-to('sm') {
+      aspect-ratio: 3 / 4;
+    }
+  }
+
+  .aboutImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    z-index: 1;
+    position: relative;
+
+    mask-image: radial-gradient(circle at center,
+        rgba(0, 0, 0, 1) 70%,
+        rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: radial-gradient(circle at center,
+        rgba(0, 0, 0, 1) 70%,
+        rgba(0, 0, 0, 0) 100%);
+
+    mask-composite: exclude;
+    -webkit-mask-composite: destination-out;
   }
 }
 

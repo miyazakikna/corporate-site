@@ -6,7 +6,7 @@ import { About } from '@/components/about/About';
 import { Service } from '@/components/service/Service';
 import { Work } from '@/components/work/Work';
 import { useEffect, useState } from 'react';
-// import { Contact } from '@/components/Contact/Contact';
+import { ContactCta } from '@/components/contact-cta/ContactCta';
 
 export const Home = () => {
   return (
@@ -15,7 +15,7 @@ export const Home = () => {
       <About />
       <Service />
       {/* <Work /> */}
-      {/* <Contact /> */}
+      <ContactCta />
     </>
   );
 }

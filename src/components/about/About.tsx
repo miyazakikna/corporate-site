@@ -5,6 +5,7 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import styles from './About.module.scss';
 import { fadeIn, slideUp, slideInLeft, slideInRight, scaleUp } from '@/utils/animations';
+import Image from 'next/image';
 
 export const About = () => {
   const sectionRef = useRef(null);
@@ -30,7 +31,18 @@ export const About = () => {
             variants={slideInLeft}
             transition={{ delay: 0.2 }}
           >
-            <div className={styles.graphicContainer}>
+
+            <div className={styles.aboutImageWrap}>
+              <Image
+                src='/main/about.jpg'
+                alt='about'
+                fill
+                className={styles.aboutImage}
+                priority
+              />
+              <div className={styles.aboutImageOverlay} />
+            </div>
+            {/* <div className={styles.graphicContainer}>
               <div className={styles.dropGraphic}>
                 <div className={styles.waterDrop}></div>
                 <motion.div
@@ -53,7 +65,7 @@ export const About = () => {
                   transition={{ delay: 0.6 }}
                 ></motion.div>
               </div>
-            </div>
+            </div> */}
           </motion.div>
 
           <motion.div
@@ -66,27 +78,18 @@ export const About = () => {
             <p className={styles.emphasis}>
               <span className='amelio-drop-icon'>A</span>melioは「改善・向上」を意味します
             </p>
-
             <p>
-              株式会社Amelioは<span className='amelio-highlight'>「改善・向上」</span>を軸に、ビジネスに必要な要素をワンストップで支援します。
-            </p>
-
-            <p>
-              スピーディかつ丁寧に、あなたのアイディアを成果へとつなげます。デジタルマーケティングからシステム開発、コンテンツ制作まで、事業成長に必要なあらゆる分野をカバーし、価値ある結果を生み出します。
+              弊社は、事業成長に欠かせないサービスをワンストップで提供しています。他社にはない総合的な支援力で、課題の解決から成果の創出まで一貫してサポートします。
             </p>
 
             <ul className={styles.valueList}>
               <li>
                 <span className={styles.valueIcon}>✓</span>
-                <span className={styles.valueText}>確かな専門知識と経験</span>
+                <span className={styles.valueText}>お客様の目的に合わせたカスタムソリューション</span>
               </li>
               <li>
                 <span className={styles.valueIcon}>✓</span>
-                <span className={styles.valueText}>迅速なレスポンスとサポート</span>
-              </li>
-              <li>
-                <span className={styles.valueIcon}>✓</span>
-                <span className={styles.valueText}>お客様の目標に合わせたカスタムソリューション</span>
+                <span className={styles.valueText}>継続的な改善と成長支援</span>
               </li>
               <li>
                 <span className={styles.valueIcon}>✓</span>
@@ -94,7 +97,7 @@ export const About = () => {
               </li>
               <li>
                 <span className={styles.valueIcon}>✓</span>
-                <span className={styles.valueText}>継続的な改善と成長支援</span>
+                <span className={styles.valueText}>迅速なレスポンスとサポート</span>
               </li>
             </ul>
             {/* 

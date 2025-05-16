@@ -110,7 +110,7 @@
     span {
       display: block;
       position: absolute;
-      height: 3px;
+      height: 2px;
       width: 100%;
       background: $secondary;
       border-radius: $border-radius-sm;
@@ -124,11 +124,11 @@
       }
 
       &:nth-child(2) {
-        top: 10px;
+        top: 5px;
       }
 
       &:nth-child(3) {
-        top: 20px;
+        top: 10px;
       }
     }
 
@@ -173,15 +173,19 @@
 
       li {
         text-align: center;
-        margin-bottom: $spacing-md;
+        margin-bottom: $spacing-sm;
 
         a {
           display: inline-block;
-          font-size: $font-size-large;
+          font-size: $font-size-base;
           color: $secondary;
           font-weight: 500;
-          padding: $spacing-sm;
+          padding: $spacing-xs;
           transition: $transition-base;
+
+          @include respond-to('md') {
+            font-size: $font-size-lg;
+          }
 
           &:hover,
           &:focus {

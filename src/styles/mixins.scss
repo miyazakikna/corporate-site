@@ -84,13 +84,17 @@
   background-color: $bg-color;
   color: $text-color;
   border: none;
-  border-radius: $border-radius-md;
-  font-size: $font-size-base;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-sm;
   font-weight: 600;
   text-align: center;
   cursor: pointer;
   transition: $transition-base;
   text-decoration: none;
+
+  @include respond-to('md') {
+    font-size: $font-size-base;
+  }
 
   &:hover,
   &:focus {
@@ -133,15 +137,16 @@
 
 // セクションの見出しスタイル
 @mixin section-title {
-  font-size: $font-size-xlarge;
+  font-size: $font-size-lg;
   font-weight: 700;
+  letter-spacing: $spacing-xxs;
   margin-bottom: $spacing-lg;
   text-align: center;
   color: $secondary;
   position: relative;
 
   @include respond-to('md') {
-    font-size: $font-size-xxlarge;
+    font-size: $font-size-xl;
   }
 
   &::after {

@@ -39,7 +39,7 @@ export const Header = () => {
       <div className={styles.container}>
         <Link href='/' className={styles.logo}>
           <Image
-            src='/images/logo.svg'
+            src='/logo.svg'
             alt='株式会社Amelio'
             width={150}
             height={40}
@@ -47,22 +47,20 @@ export const Header = () => {
           />
         </Link>
 
-        {/* デスクトップナビゲーション */}
         <nav className={styles.desktopNav}>
           <ul>
             <li>
-              <Link href='#about'>会社紹介</Link>
+              <Link href='/#about'>会社紹介</Link>
             </li>
             <li>
-              <Link href='#services'>サービス</Link>
+              <Link href='/#services'>サービス</Link>
             </li>
             <li>
-              <Link href='#contact' className={styles.contactBtn}>お問い合わせ</Link>
+              <Link href='/#contact' className={styles.contactBtn}>お問い合わせ</Link>
             </li>
           </ul>
         </nav>
 
-        {/* モバイルメニューボタン */}
         <button
           className={`${styles.mobileMenuBtn} ${isMobileMenuOpen ? styles.open : ''}`}
           onClick={toggleMobileMenu}
@@ -74,7 +72,6 @@ export const Header = () => {
         </button>
       </div>
 
-      {/* モバイルナビゲーション */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.nav

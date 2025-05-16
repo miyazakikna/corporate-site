@@ -98,10 +98,10 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  @include flex(row, center, center);
+  @include flex(row, flex-end, center);
 
   li {
-    margin: 0 $spacing-md $spacing-xl;
+    margin: 0 $spacing-md;
 
     a {
       color: rgba($white, 0.8);
@@ -109,6 +109,11 @@
       white-space: nowrap;
       position: relative;
       display: inline-block;
+      font-size: $font-size-sm;
+
+      @include respond-to('md') {
+        font-size: $font-size-base;
+      }
 
       &::before {
         content: '›';
@@ -133,8 +138,12 @@
 .contactInfo {
   font-style: normal;
   color: rgba($white, 0.8);
-  font-size: $font-size-small;
+  font-size: $font-size-xs;
   line-height: 1.6;
+
+  @include respond-to('md') {
+    font-size: $font-size-sm;
+  }
 
   p {
     margin-bottom: $spacing-sm;
@@ -189,11 +198,12 @@
 
 .copyright {
   color: rgba($white, 0.6);
-  font-size: $font-size-small;
+  font-size: $font-size-xs;
   margin-bottom: $spacing-sm;
 
   @include respond-to('md') {
     margin-bottom: 0;
+    font-size: $font-size-sm;
   }
 }
 
@@ -203,8 +213,12 @@
 
   a {
     color: rgba($white, 0.6);
-    font-size: $font-size-small;
+    font-size: $font-size-xs;
     transition: $transition-base;
+
+    @include respond-to('md') {
+      font-size: $font-size-sm;
+    }
 
     &:hover {
       color: $white;

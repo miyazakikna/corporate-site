@@ -52,14 +52,18 @@
 
   .serviceTitle {
     color: $secondary;
-    font-size: $font-size-large;
+    font-size: $font-size-base;
     font-weight: 600;
     margin-bottom: $spacing-sm;
+
+    @include respond-to('md') {
+      font-size: $font-size-lg;
+    }
   }
 
   .serviceDescription {
     color: $dark-gray;
-    font-size: $font-size-small;
+    font-size: $font-size-sm;
     line-height: 1.5;
 
     @include respond-to('md') {

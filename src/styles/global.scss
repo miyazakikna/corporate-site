@@ -35,10 +35,6 @@ h6 {
   margin-bottom: $spacing-sm;
 }
 
-p {
-  margin-bottom: $spacing-md;
-}
-
 a {
   color: $primary;
   text-decoration: none;
@@ -118,7 +114,7 @@ button {
 
   &.btn-large {
     padding: $spacing-sm $spacing-lg;
-    font-size: $font-size-large;
+    font-size: $font-size-lg;
   }
 }
 

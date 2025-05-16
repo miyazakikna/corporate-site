@@ -43,11 +43,11 @@ export const Work = () => {
   ];
 
   return (
-    <section id="works" className={`section ${styles.works}`} ref={sectionRef}>
-      <div className="container">
+    <section id='works' className={`section ${styles.works}`} ref={sectionRef}>
+      <div className='container'>
         <motion.h2
-          className="section-title"
-          initial="hidden"
+          className='section-title'
+          initial='hidden'
           animate={isInView ? 'visible' : 'hidden'}
           variants={slideUp}
         >
@@ -90,7 +90,7 @@ export const Work = () => {
                         src={caseStudy.imageSrc}
                         alt={caseStudy.imageAlt}
                         fill
-                        sizes="(max-width: 768px) 100vw, 50vw"
+                        sizes='(max-width: 768px) 100vw, 50vw'
                         className={styles.caseImage}
                       />
                     </div>
@@ -129,10 +129,10 @@ export const Work = () => {
           </Swiper>
 
           <div className={styles.navigationControls}>
-            <button ref={navigationPrevRef} className={styles.navButton} aria-label="前へ">
+            <button ref={navigationPrevRef} className={styles.navButton} aria-label='前へ'>
               <ChevronLeft />
             </button>
-            <button ref={navigationNextRef} className={styles.navButton} aria-label="次へ">
+            <button ref={navigationNextRef} className={styles.navButton} aria-label='次へ'>
               <ChevronRight />
             </button>
           </div>

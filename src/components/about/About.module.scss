@@ -91,11 +91,23 @@
   }
 }
 
+.text {
+  font-size: $font-size-sm;
+
+  @include respond-to('md') {
+    font-size: $font-size-base;
+  }
+}
+
 .emphasis {
-  font-size: 1.2rem;
+  font-size: $font-size-lg;
   font-weight: 600;
   margin-bottom: $spacing-md;
   color: $primary;
+
+  @include respond-to('md') {
+    font-size: $font-size-xl;
+  }
 }
 
 .valueList {
@@ -119,6 +131,11 @@
 
 .valueText {
   font-weight: 500;
+  font-size: $font-size-sm;
+
+  @include respond-to('md') {
+    font-size: $font-size-base;
+  }
 }
 
 .graphicContainer {

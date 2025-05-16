@@ -49,7 +49,11 @@
   height: 100%;
   object-fit: cover;
   z-index: 1;
-  filter: brightness(0.4);
+  filter: brightness(0.7);
+
+  @include respond-to('xl') {
+    filter: brightness(0.4);
+  }
 }
 
 .heroImageOverlay {
@@ -134,7 +138,7 @@
 }
 
 .title {
-  font-size: $font-size-xlarge;
+  font-size: $font-size-xl;
   font-weight: 700;
   margin-bottom: $spacing-md;
   line-height: 1.6;
@@ -142,7 +146,7 @@
 
   .accent {
     color: $primary;
-    font-size: $font-size-xxlarge;
+    font-size: $font-size-xxl;
   }
 
   @include respond-to('md') {
@@ -156,11 +160,11 @@
 }
 
 .subtitle {
-  font-size: $font-size-base;
+  font-size: $font-size-sm;
   font-weight: 500;
 
   @include respond-to('md') {
-    font-size: $font-size-large;
+    font-size: $font-size-base;
     letter-spacing: $spacing-xxs;
   }
 }
@@ -313,7 +317,7 @@
   z-index: 2;
 
   span {
-    font-size: $font-size-small;
+    font-size: $font-size-sm;
     margin-bottom: $spacing-xs;
     color: $white;
   }

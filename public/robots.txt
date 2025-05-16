@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://amelio-tech.com
+
+# Sitemaps
+Sitemap: https://amelio-tech.com/sitemap.xml

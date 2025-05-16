@@ -27,7 +27,7 @@ export const Footer = () => {
           <div className={styles.footerBrand}>
             <Link href='/' className={styles.footerLogo}>
               <Image
-                src='/images/logo.svg'
+                src='/logo.svg'
                 alt='株式会社Amelio'
                 width={150}
                 height={40}
@@ -42,9 +42,9 @@ export const Footer = () => {
           <div className={styles.footerNav}>
             <div className={styles.navColumn}>
               <ul className={styles.navList}>
-                <li><Link href='#about'>会社紹介</Link></li>
-                <li><Link href='#services'>サービス</Link></li>
-                <li><Link href='#contact'>お問い合わせ</Link></li>
+                <li><Link href='/#about'>会社紹介</Link></li>
+                <li><Link href='/#services'>サービス</Link></li>
+                <li><Link href='/#contact'>お問い合わせ</Link></li>
               </ul>
             </div>
 

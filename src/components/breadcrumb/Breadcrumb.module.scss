@@ -1,0 +1,40 @@
+@import '@/styles/variables.scss';
+@import '@/styles/mixins.scss';
+
+.breadcrumb {
+  margin-bottom: $spacing-sm;
+
+  ol {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    counter-reset: none;
+    font-size: $font-size-sm;
+
+    li {
+      display: flex;
+      align-items: center;
+
+      &::after {
+        content: '/';
+        margin: 0 $spacing-xxs;
+      }
+
+      &:last-child::after {
+        content: '';
+      }
+
+      a {
+        color: $primary;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

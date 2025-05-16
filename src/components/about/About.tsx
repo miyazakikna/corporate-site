@@ -54,13 +54,13 @@ export const About = () => {
                   transition={{
                     duration: 4,
                     repeat: Infinity,
-                    ease: "linear"
+                    ease: 'linear'
                   }}
                 ></motion.div>
                 <motion.div
                   className={styles.growthArrow}
-                  initial="hidden"
-                  animate={isInView ? "visible" : "hidden"}
+                  initial='hidden'
+                  animate={isInView ? 'visible' : 'hidden'}
                   variants={scaleUp}
                   transition={{ delay: 0.6 }}
                 ></motion.div>
@@ -75,17 +75,17 @@ export const About = () => {
             variants={slideInRight}
             transition={{ delay: 0.4 }}
           >
-            <p className={styles.emphasis}>
-              <span className='amelio-drop-icon'>A</span>melioは「改善・向上」を意味します
-            </p>
-            <p>
+            {/* <p className={styles.emphasis}>
+              Amelioは「改善・向上」を意味します
+            </p> */}
+            <p className={styles.text}>
               弊社は、事業成長に欠かせないサービスをワンストップで提供しています。他社にはない総合的な支援力で、課題の解決から成果の創出まで一貫してサポートします。
             </p>
 
             <ul className={styles.valueList}>
               <li>
                 <span className={styles.valueIcon}>✓</span>
-                <span className={styles.valueText}>お客様の目的に合わせたカスタムソリューション</span>
+                <span className={styles.valueText}>お客様の目的に合わせたサービス提供</span>
               </li>
               <li>
                 <span className={styles.valueIcon}>✓</span>

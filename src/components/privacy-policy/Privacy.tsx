@@ -99,7 +99,7 @@ export const Privacy = () => {
             </p>
             <address className={styles.address}>
               社名：株式会社Amelio<br />
-              住所：千葉県香取郡多古町井戸山722-1<br />
+              住所：千葉県香取郡多古町井戸山722番地1<br />
               代表取締役：宮崎 賢治<br />
               メール：contact@amelio-tech.com
             </address>

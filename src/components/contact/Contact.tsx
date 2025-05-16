@@ -153,7 +153,7 @@ export const Contact = () => {
               </div>
 
               {submitStatus === 'error' && (
-                <div className={styles.formError}>
+                <div className={styles.errorMessage}>
                   <p>{errorMessage || 'エラーが発生しました。時間をおいて再度お試しください。'}</p>
                 </div>
               )}

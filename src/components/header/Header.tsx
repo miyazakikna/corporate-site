@@ -39,7 +39,7 @@ export const Header = () => {
       <div className={styles.container}>
         <Link href='/' className={styles.logo}>
           <Image
-            src='/logo.svg'
+            src='/logo.png'
             alt='株式会社Amelio'
             width={150}
             height={40}

@@ -27,7 +27,7 @@ export const Footer = () => {
           <div className={styles.footerBrand}>
             <Link href='/' className={styles.footerLogo}>
               <Image
-                src='/logo.svg'
+                src='/logo.png'
                 alt='株式会社Amelio'
                 width={150}
                 height={40}

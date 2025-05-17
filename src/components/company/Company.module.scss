@@ -11,8 +11,12 @@
   background-color: $white;
   border-radius: $border-radius-md;
   box-shadow: $shadow-md;
-  padding: $spacing-lg;
+  padding: $spacing-xs;
   margin-bottom: $spacing-xl;
+
+  @include respond-to('md') {
+    padding: $spacing-lg;
+  }
 }
 
 .companyTable {
@@ -24,6 +28,11 @@
     padding: $spacing-sm;
     border-bottom: 1px solid $light-gray;
     text-align: left;
+    font-size: $font-size-sm;
+
+    @include respond-to('md') {
+      padding: $font-size-base;
+    }
   }
 
   th {

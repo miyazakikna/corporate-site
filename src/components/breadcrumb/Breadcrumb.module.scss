@@ -2,7 +2,11 @@
 @import '@/styles/mixins.scss';
 
 .breadcrumb {
-  margin-bottom: $spacing-sm;
+  margin-bottom: $spacing-lg;
+
+  @include respond-to('md') {
+    margin-bottom: $spacing-xl;
+  }
 
   ol {
     display: flex;

@@ -12,7 +12,11 @@
     margin: 0;
     list-style: none;
     counter-reset: none;
-    font-size: $font-size-sm;
+    font-size: $font-size-xs;
+
+    @include respond-to('md') {
+      font-size: $font-size-sm;
+    }
 
     li {
       display: flex;

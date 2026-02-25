@@ -1,4 +1,4 @@
-import { Privacy } from '@/components/privacy-policy/Privacy';
+import { Privacy } from '@/components/Privacy';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -7,5 +7,7 @@ export const metadata: Metadata = {
 };
 
 export default function PrivacyPage() {
-  return <Privacy />;
+  return (
+    <Privacy />
+  );
 }

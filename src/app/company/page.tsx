@@ -1,4 +1,4 @@
-import { Company } from '@/components/company/Company';
+import { Company } from '@/components/Company';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -7,5 +7,7 @@ export const metadata: Metadata = {
 };
 
 export default function CompanyPage() {
-  return <Company />
+  return (
+    <Company />
+  );
 }

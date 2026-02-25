@@ -17,6 +17,9 @@ const TextParticleMaterial = shaderMaterial(
     uIntro: 0,
     uPixelRatio: 1,
     uMobile: 0,
+    uFlowerY: -2.5,    // 花のY中心（動的に変化）
+    uTextY: 0.0,       // Amelioテキストのオフセット
+    uFlowerScale: 1.0, // 花のサイズ（スマホ時に縮小）
   },
 
   // Vertex Shader
@@ -27,6 +30,9 @@ const TextParticleMaterial = shaderMaterial(
     uniform float uIntro;
     uniform float uPixelRatio;
     uniform float uMobile;
+    uniform float uFlowerY;
+    uniform float uTextY;
+    uniform float uFlowerScale;
 
     attribute vec3 aTarget1;  // Rain (random)
     attribute vec3 aTarget3;  // Flower
@@ -66,7 +72,7 @@ const TextParticleMaterial = shaderMaterial(
       p3 = clamp(p3, 0.0, 1.0);
 
       // Flower bloom: rotate, tilt, scale up from center bottom
-      vec3 flowerCenter = vec3(0.0, -6.0, 0.0);
+      vec3 flowerCenter = vec3(0.0, uFlowerY, 0.0);
       vec3 localFlowerPos = flowerPos - flowerCenter;
 
       float rotAngle = p3 * 3.14159 + (uTime * 0.15);
@@ -81,6 +87,8 @@ const TextParticleMaterial = shaderMaterial(
       mat2 rotX = mat2(tc, -ts, ts, tc);
       localFlowerPos.yz = rotX * localFlowerPos.yz;
 
+      // uFlowerScale: スマホ時は花全体を縮小して画面下部に収める
+      localFlowerPos *= uFlowerScale;
       localFlowerPos *= p3;
       localFlowerPos.y += (1.0 - p3) * -2.0;
 
@@ -100,7 +108,10 @@ const TextParticleMaterial = shaderMaterial(
 
       // Color: white -> warm gold/rose for flower
       vec3 baseColor = vec3(1.0, 1.0, 1.0);
-      float distFromCenter = length(flowerPos.xz);
+      // flowerPos は aTarget3 (uniform で渡せないため attribute ベース)
+      // uFlowerY を使って flower から中心への距離を計算
+      vec3 centeredFlower = flowerPos - flowerCenter;
+      float distFromCenter = length(centeredFlower.xz);
       vec3 centerColor = vec3(1.0, 0.85, 0.4);   // Gold
       vec3 petalColor  = vec3(1.0, 0.96, 0.98);  // White-rose
       vec3 flowerColor = mix(centerColor, petalColor, smoothstep(0.0, 2.5, distFromCenter));
@@ -156,7 +167,7 @@ function TextParticlesImpl({
   const { size, viewport } = useThree();
 
   const count = useMemo(() => {
-    if (size.width < 480) return 2000;
+    if (size.width < 480) return 1500;
     if (size.width < 768) return 3000;
     if (size.width < 1024) return 6000;
     return 8000;
@@ -164,14 +175,16 @@ function TextParticlesImpl({
 
   const attributes = useMemo(() => {
     // --- Amelio geometry (position) ---
+    // size: スマホでもはみ出さないよう1.4に縮小
     const geom = new TextGeometry('Amelio', {
       font,
-      size: 1.8,
+      size: 1.4,
       depth: 0.1,
       curveSegments: 12,
       bevelEnabled: false,
     });
     geom.center();
+    geom.translate(0, 0.8, 0);
 
     const mesh = new THREE.Mesh(geom);
     const sampler = new MeshSurfaceSampler(mesh).build();
@@ -261,11 +274,11 @@ function TextParticlesImpl({
       });
     };
 
-    createElegantFlower(0, -6.0, 0, 1.0);
+    createElegantFlower(0, -2.5, 0, 1.0);
 
     // Fill remaining slots
     while (pIndex < count) {
-      addPoint(0, -6.0, 0);
+      addPoint(0, -2.5, 0);
     }
 
     // --- Randoms ---
@@ -275,7 +288,21 @@ function TextParticlesImpl({
     return { pos1, posRain, pos3, randoms };
   }, [font, count]);
 
-  const scale = Math.min(1, viewport.width / 12);
+  // スマホ縦画面でも十分なスケールになるよう、heightとwidthの両方を考慮
+  // テキスト幅 ≈ 5.0（size:1.4のHelvetica「Amelio」）
+  // viewport.width 内に確実に収めるため viewport.width / 5.0 を上限とする
+  const isMobile = size.width < 768;
+  const scale = isMobile
+    ? Math.min(viewport.width / 5.0, viewport.height / 14)
+    : Math.min(1, viewport.width / 12);
+
+  // 花のY中心座標：画面最下部
+  // points 子空間での画面下端 = viewport.height / (2 * scale)
+  const halfH = viewport.height / (2 * scale);
+  // スマホ時は花を flowerScale=0.75倍に縮小 → 花の実効半径 ≈ 2.5*0.75 = 1.875
+  // 画面下端から 2.0 上に中心を置くと上端が画面内に収まる
+  const flowerScale = 1.5;
+  const flowerY = isMobile ? -1.0 : -2.5;
 
   useFrame((state, delta) => {
     if (!materialRef.current) return;
@@ -283,6 +310,9 @@ function TextParticlesImpl({
     materialRef.current.uniforms.uTime.value += delta;
     materialRef.current.uniforms.uPixelRatio.value = state.viewport.dpr;
     materialRef.current.uniforms.uMobile.value = state.size.width < 768 ? 1.0 : 0.0;
+    materialRef.current.uniforms.uFlowerY.value = flowerY;
+    materialRef.current.uniforms.uFlowerScale.value = flowerScale;
+    materialRef.current.uniforms.uTextY.value = 0.0;
 
     if (materialRef.current.uniforms.uIntro.value < 1.0) {
       materialRef.current.uniforms.uIntro.value += delta * 0.4;

@@ -12,7 +12,7 @@ export default function HeroSection() {
       {/* <div className="absolute top-0 right-0 w-[75vw] lg:w-[55vw] h-[75vw] lg:h-[55vw] bg-linear-to-bl from-cyan-300/45 via-primary-200/35 to-blue-200/25 rounded-full blur-[65px] lg:blur-[130px] -translate-y-1/2 translate-x-1/4 pointer-events-none" /> */}
 
       <section className="min-h-screen w-screen flex flex-col justify-center items-center p-10 relative">
-        <div className="h-32 md:h-48" />
+        <div className="h-10 md:h-20" />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -23,7 +23,7 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 1 }}
-            className="mt-20 text-sm sm:text-base md:text-xl tracking-[0.2em] sm:tracking-[0.3em] md:tracking-[0.5em] font-light text-[#556677] uppercase text-center"
+            className="text-sm sm:text-base md:text-xl tracking-[0.2em] sm:tracking-[0.3em] md:tracking-[0.5em] font-light text-[#556677] uppercase text-center"
           >
             makes growth scalable.
           </motion.p>
@@ -34,7 +34,7 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 1 }}
-          className="absolute bottom-10 right-10"
+          className="absolute bottom-20 md:bottom-30 right-10"
         >
           <motion.div
             style={{ opacity: scrollOpacity }}

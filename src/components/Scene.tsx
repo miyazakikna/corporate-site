@@ -3,7 +3,7 @@
 import { useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
 import TextParticles from './3d/TextParticles';
-import * as THREE from 'three';
+import StarField from './3d/StarField';
 
 export default function Scene() {
   // scrollOffset covers the 3D section only (200vh).
@@ -13,11 +13,6 @@ export default function Scene() {
   useFrame((state) => {
     const sectionHeight = window.innerHeight * 2;
     scrollOffset.current = Math.min(1, window.scrollY / sectionHeight);
-
-    // Remove camera movement based on scroll to stop zooming
-    // state.camera.position.z = 5 - offset * 2;
-    // state.camera.position.y = -offset * 2;
-    // state.camera.lookAt(0, -offset * 2, 0);
   });
 
   return (
@@ -26,6 +21,10 @@ export default function Scene() {
       <pointLight position={[10, 10, 10]} intensity={1.5} />
       <pointLight position={[-10, -10, -10]} intensity={1} color="#0091EA" />
 
+      {/* Stars: always floating in the background */}
+      <StarField scrollOffset={scrollOffset} />
+
+      {/* Text particles: Amelio -> Rain -> Flower */}
       <TextParticles scrollOffset={scrollOffset} />
     </>
   );

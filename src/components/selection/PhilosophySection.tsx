@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function PhilosophySection() {
   return (
-    <section className="min-h-screen w-full flex flex-col justify-center items-center p-10 relative bg-transparent">
+    <section className="min-h-screen w-full flex flex-col justify-start items-center pt-24 px-10 relative bg-transparent">
 
       {/* <div className="absolute bottom-0 right-0 w-[75vw] lg:w-[55vw] h-[75vw] lg:h-[55vw] bg-linear-to-tl from-cyan-300/45 via-primary-200/35 to-blue-200/25 rounded-full blur-[65px] lg:blur-[130px] translate-y-1/2 translate-x-1/4 pointer-events-none" /> */}
 

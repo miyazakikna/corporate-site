@@ -46,7 +46,7 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 1 }}
-          className="absolute bottom-20 md:bottom-30 right-10"
+          className="absolute bottom-20 md:bottom-40 left-1/2 -translate-x-1/2"
         >
           <motion.div
             style={{ opacity: scrollOpacity }}

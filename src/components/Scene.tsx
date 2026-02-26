@@ -4,6 +4,7 @@ import { useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
 import TextParticles from './3d/TextParticles';
 import StarField from './3d/StarField';
+import GrowingVines from './3d/GrowingVines';
 
 export default function Scene() {
   // scrollOffset covers the 3D section only (200vh).
@@ -26,8 +27,11 @@ export default function Scene() {
       {/* Stars: always floating in the background */}
       <StarField scrollOffset={scrollOffset} />
 
-      {/* Text particles: Amelio -> Rain -> Flower */}
+      {/* Text particles: Amelio -> Rain */}
       <TextParticles scrollOffset={scrollOffset} />
+
+      {/* Growing Vines */}
+      {/* <GrowingVines scrollOffset={scrollOffset} /> */}
     </>
   );
 }

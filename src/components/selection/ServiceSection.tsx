@@ -148,12 +148,12 @@ export default function ServiceSection() {
                   }}
                   animate={{
                     rotate: 15,
-                    x: typeof window !== 'undefined' && window.innerWidth >= 1024 ? 80 : (window.innerWidth >= 768 ? 60 : 40),
+                    x: typeof window !== 'undefined' ? (window.innerWidth >= 1024 ? 80 : (window.innerWidth >= 768 ? 60 : 40)) : 0,
                     y: 10
                   }}
                   whileHover={{
                     rotate: 20,
-                    x: typeof window !== 'undefined' && window.innerWidth >= 1024 ? 100 : (window.innerWidth >= 768 ? 80 : 60),
+                    x: typeof window !== 'undefined' ? (window.innerWidth >= 1024 ? 100 : (window.innerWidth >= 768 ? 80 : 60)) : 0,
                     y: -10,
                     transition: { duration: 0.3 }
                   }}
@@ -175,12 +175,12 @@ export default function ServiceSection() {
                   }}
                   animate={{
                     rotate: -15,
-                    x: typeof window !== 'undefined' && window.innerWidth >= 1024 ? -80 : (window.innerWidth >= 768 ? -60 : -40),
+                    x: typeof window !== 'undefined' ? (window.innerWidth >= 1024 ? -80 : (window.innerWidth >= 768 ? -60 : -40)) : 0,
                     y: 10
                   }}
                   whileHover={{
                     rotate: -20,
-                    x: typeof window !== 'undefined' && window.innerWidth >= 1024 ? -100 : (window.innerWidth >= 768 ? -80 : -60),
+                    x: typeof window !== 'undefined' ? (window.innerWidth >= 1024 ? -100 : (window.innerWidth >= 768 ? -80 : -60)) : 0,
                     y: -10,
                     transition: { duration: 0.3 }
                   }}

@@ -11,8 +11,10 @@ export default function Scene() {
   const scrollOffset = useRef(0);
 
   useFrame((state) => {
-    const sectionHeight = window.innerHeight * 2;
-    scrollOffset.current = Math.min(1, window.scrollY / sectionHeight);
+    if (typeof window !== 'undefined') {
+      const sectionHeight = window.innerHeight * 2;
+      scrollOffset.current = Math.min(1, window.scrollY / sectionHeight);
+    }
   });
 
   return (

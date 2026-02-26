@@ -3,6 +3,11 @@ import type { Metadata } from 'next';
 import { Outfit, Zen_Kaku_Gothic_New } from 'next/font/google';
 import { Footer } from '@/components/Footer';
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1.0,
+};
+
 export const metadata: Metadata = {
   title: '株式会社Amelio',
   description:
@@ -24,7 +29,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://amelio-tech.com',
   },
-  viewport: 'width=device-width, initial-scale=1.0',
   robots: {
     index: true,
     follow: true,

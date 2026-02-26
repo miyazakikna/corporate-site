@@ -27,6 +27,18 @@ export default function HeroSection() {
           >
             makes growth scalable.
           </motion.p>
+          {/* <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.5, duration: 1 }}
+            className="mt-8 flex justify-center"
+          >
+            <img
+              src="/brand-logo.png"
+              alt="Amelio Logo"
+              className="h-10 md:h-16 w-auto opacity-70"
+            />
+          </motion.div> */}
         </motion.div>
 
         {/* Scroll Indicator */}

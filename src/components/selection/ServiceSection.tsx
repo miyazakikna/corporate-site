@@ -3,8 +3,31 @@
 import { motion } from 'framer-motion';
 import Section from '@/components/Section';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 
 export default function ServiceSection() {
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    // Set initial width
+    setWindowWidth(window.innerWidth);
+
+    // Update on resize
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Calculate card offset based on screen width
+  const getCardOffset = () => {
+    if (windowWidth === 0) return 0; // SSR safe fallback
+    if (windowWidth >= 1024) return 80;
+    if (windowWidth >= 768) return 60;
+    return 40;
+  };
+
+  const cardOffset = getCardOffset();
+
   return (
     <Section id="service" className="bg-secondary !py-0 !px-0" contentClassName="!max-w-none">
       <div className="w-full pt-32 pb-16 px-10">
@@ -148,12 +171,12 @@ export default function ServiceSection() {
                   }}
                   animate={{
                     rotate: 15,
-                    x: typeof window !== 'undefined' ? (window.innerWidth >= 1024 ? 80 : (window.innerWidth >= 768 ? 60 : 40)) : 0,
+                    x: cardOffset,
                     y: 10
                   }}
                   whileHover={{
                     rotate: 20,
-                    x: typeof window !== 'undefined' ? (window.innerWidth >= 1024 ? 100 : (window.innerWidth >= 768 ? 80 : 60)) : 0,
+                    x: cardOffset + 20,
                     y: -10,
                     transition: { duration: 0.3 }
                   }}
@@ -175,12 +198,12 @@ export default function ServiceSection() {
                   }}
                   animate={{
                     rotate: -15,
-                    x: typeof window !== 'undefined' ? (window.innerWidth >= 1024 ? -80 : (window.innerWidth >= 768 ? -60 : -40)) : 0,
+                    x: -cardOffset,
                     y: 10
                   }}
                   whileHover={{
                     rotate: -20,
-                    x: typeof window !== 'undefined' ? (window.innerWidth >= 1024 ? -100 : (window.innerWidth >= 768 ? -80 : -60)) : 0,
+                    x: -(cardOffset + 20),
                     y: -10,
                     transition: { duration: 0.3 }
                   }}

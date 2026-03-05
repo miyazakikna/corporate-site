@@ -67,13 +67,13 @@ export default function ContactCustomerEmail({ data }: ContactCustomerEmailProps
           </Section>
 
           <Section style={footerStyle}>
+            <Hr style={dividerStyle} />
             <Text style={footerText}>
-              ━━━━━━━━━━━━━━━━━━━━━━━━━━<br />
               株式会社Amelio<br />
               Email：contact@amelio-tech.com<br />
-              URL：https://amelio-tech.com<br />
-              ━━━━━━━━━━━━━━━━━━━━━━━━━━
+              URL：https://amelio-tech.com
             </Text>
+            <Hr style={dividerStyle} />
           </Section>
         </Container>
       </Body>
@@ -154,9 +154,8 @@ const noteStyle: React.CSSProperties = {
 };
 
 const footerStyle: React.CSSProperties = {
-  backgroundColor: "#f7fafc",
-  padding: "20px 40px",
-  borderTop: "1px solid #e2e8f0",
+  backgroundColor: "#ffffff",
+  padding: "0 40px 32px 40px",
 };
 
 const footerText: React.CSSProperties = {

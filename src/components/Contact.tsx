@@ -84,7 +84,7 @@ export const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="bg-white"
+            className="bg-white "
           >
             {submitStatus === 'success' ? (
               <div className="text-center py-20 px-10">
@@ -94,7 +94,7 @@ export const Contact = () => {
                   </svg>
                 </div>
                 <h3 className="text-2xl font-bold text-secondary mb-4 font-heading">お問い合わせありがとうございます</h3>
-                <p className="text-slate-500 leading-relaxed max-w-md mx-auto text-sm md:text-base">
+                <p className="text-slate-500 leading-relaxed mx-auto text-sm md:text-base">
                   内容を受け付けました。担当者より順次ご連絡させていただきます。<br />
                   自動返信メールもお送りしておりますので、ご確認ください。
                 </p>

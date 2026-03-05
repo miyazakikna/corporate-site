@@ -14,9 +14,13 @@ const companyData = [
   {
     label: '事業内容',
     value: null,
-    list: ['ITコンサルティング', 'マーケティング支援', '業務改善支援', 'システム開発'],
+    list: [
+      { name: 'FIT KARTE', description: 'フィットネスジム向け管理プラットフォーム' },
+      { name: 'WITH TRAINER', description: 'トレーナー向けブランディング支援' },
+      { name: 'WEB・システム支援', description: 'ITの提案・開発・運用まで一貫して対応' },
+    ],
   },
-  { label: '主な取引先', value: '株式会社Shape Fit' },
+  // { label: '主な取引先', value: '株式会社Shape Fit' },
   { label: '取引銀行', value: 'GMOあおぞらネット銀行' },
   { label: '適格請求書番号', value: 'T5040001130374' },
 ];
@@ -65,14 +69,20 @@ export const Company = () => {
                 {/* Value */}
                 <div className="flex-1 px-6 pb-5 pt-1 md:py-6 md:px-8">
                   {item.list ? (
-                    <ul className="list-none p-0 m-0 space-y-2">
+                    <ul className="list-none p-0 m-0 space-y-3">
                       {item.list.map((li, i) => (
-                        <li
-                          key={i}
-                          className="flex items-center gap-3 text-sm md:text-base text-slate-700 leading-relaxed"
-                        >
-                          <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                          {li}
+                        <li key={i} className="flex items-start gap-3">
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-3" />
+                          <div>
+                            <span className="text-sm md:text-base text-slate-700 leading-relaxed font-medium">
+                              {li.name}
+                            </span>
+                            {li.description && (
+                              <p className="text-xs text-slate-400 mt-0.5 leading-relaxed">
+                                {li.description}
+                              </p>
+                            )}
+                          </div>
                         </li>
                       ))}
                     </ul>

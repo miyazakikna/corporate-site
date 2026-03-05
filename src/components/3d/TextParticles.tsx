@@ -68,6 +68,7 @@ const TextParticleMaterial = shaderMaterial(
       vec3 currentPos = mix(pos, rainPos, p);
 
       // --- Transition 2: Rain -> Flower ---
+      /*
       float p3 = smoothstep(0.0, 1.0, (uProgress3 - aRandom * 0.4) * 2.0);
       p3 = clamp(p3, 0.0, 1.0);
 
@@ -95,19 +96,23 @@ const TextParticleMaterial = shaderMaterial(
       vec3 animatedFlowerPos = localFlowerPos + flowerCenter;
 
       currentPos = mix(currentPos, animatedFlowerPos, p3);
+      */
 
       vec4 mvPosition = modelViewMatrix * vec4(currentPos, 1.0);
       gl_Position = projectionMatrix * mvPosition;
 
       // Particle size: grow slightly for flower
-      float pSize = mix(16.0, 22.0, p3);
+      // float pSize = mix(16.0, 22.0, p3);
+      float pSize = 16.0;
       gl_PointSize = pSize * uPixelRatio * (1.0 / -mvPosition.z);
 
       float alphaBase = mix(1.0, 0.85, uMobile);
-      vAlpha = alphaBase * introP * (1.0 - p * 0.3 + p3 * 0.3);
+      // vAlpha = alphaBase * introP * (1.0 - p * 0.3 + p3 * 0.3);
+      vAlpha = alphaBase * introP * (1.0 - p * 0.3);
 
       // Color: white -> warm gold/rose for flower
       vec3 baseColor = vec3(1.0, 1.0, 1.0);
+      /*
       // flowerPos は aTarget3 (uniform で渡せないため attribute ベース)
       // uFlowerY を使って flower から中心への距離を計算
       vec3 centeredFlower = flowerPos - flowerCenter;
@@ -118,6 +123,8 @@ const TextParticleMaterial = shaderMaterial(
       flowerColor += vec3(0.1) * sin(uTime * 2.0 + aRandom * 10.0) * p3;
 
       vColor = mix(baseColor, flowerColor, p3);
+      */
+      vColor = baseColor;
     }
   `,
 
@@ -325,8 +332,8 @@ function TextParticlesImpl({
     materialRef.current.uniforms.uProgress.value = progress;
 
     // Rain -> Flower: scroll 0.4 ~ 0.7
-    const progress3 = Math.max(0, Math.min(1, (offset - 0.4) / 0.3));
-    materialRef.current.uniforms.uProgress3.value = progress3;
+    // const progress3 = Math.max(0, Math.min(1, (offset - 0.4) / 0.3));
+    // materialRef.current.uniforms.uProgress3.value = progress3;
 
     // Fade out: scroll 0.7 ~ 0.9
     const fadeOut = 1.0 - Math.max(0, Math.min(1, (offset - 0.7) / 0.2));

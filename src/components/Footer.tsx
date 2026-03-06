@@ -13,7 +13,7 @@ export function Footer() {
       links: [
         { label: 'FIT KARTE', href: 'https://fit-karte.com' },
         { label: 'WITH TRAINER', href: 'https://with-trainer.com' },
-        // { label: 'IT SOLUTIONS', href: '/#service' },
+        { label: 'WEB・システム支援', href: '/it-consulting' },
       ],
     },
     {

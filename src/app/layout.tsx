@@ -2,6 +2,7 @@ import '@/styles/global.css'
 import type { Metadata } from 'next';
 import { Outfit, Zen_Kaku_Gothic_New } from 'next/font/google';
 import { Footer } from '@/components/Footer';
+import { GoogleTagManager } from '@next/third-parties/google'
 
 export const viewport = {
   width: 'device-width',
@@ -94,9 +95,9 @@ export default function RootLayout({
         <Footer />
       </body>
 
-      {/* {process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID && (
+      {process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID && (
         <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID} />
-      )} */}
+      )}
     </html>
   );
 }

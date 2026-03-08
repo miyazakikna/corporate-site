@@ -61,7 +61,7 @@ export default function ServiceSection() {
               viewport={{ once: true, amount: 0.3 }}
               className="lg:flex-1 min-w-0 w-full lg:w-auto lg:pb-20"
             >
-              <h3 className="text-xs font-bold text-[#4FC3F7] tracking-[0.4em] mb-4 lg:mb-6 uppercase font-heading">01 / FIT KARTE</h3>
+              <h3 className="text-xs font-bold text-primary-light tracking-[0.4em] mb-4 lg:mb-6 uppercase font-heading">01 / FIT KARTE</h3>
               {/* ロゴ + ブランドテキスト */}
               <div className="flex items-center gap-3 lg:gap-4 mb-4 lg:mb-6">
                 <img src="/service/fk-brand-logo.png" alt="FIT KARTE Logo" className="w-10 h-10 lg:w-16 lg:h-16 object-contain" />
@@ -132,7 +132,7 @@ export default function ServiceSection() {
               viewport={{ once: true, amount: 0.3 }}
               className="lg:flex-1 min-w-0 w-full lg:w-auto lg:pb-20"
             >
-              <h3 className="text-xs font-bold text-[#4FC3F7] tracking-[0.4em] mb-4 lg:mb-6 uppercase font-heading">02 / WITH TRAINER</h3>
+              <h3 className="text-xs font-bold text-primary-light tracking-[0.4em] mb-4 lg:mb-6 uppercase font-heading">02 / WITH TRAINER</h3>
               {/* ロゴ + ブランドテキスト */}
               <div className="flex items-center gap-3 lg:gap-5 mb-4 lg:mb-8">
                 <img src="/service/wt-brand-icon.png" alt="WITH TRAINER Logo" className="w-10 h-10 lg:w-16 lg:h-16 object-contain" />
@@ -252,7 +252,7 @@ export default function ServiceSection() {
               viewport={{ once: true, amount: 0.3 }}
               className="lg:flex-1 min-w-0 w-full lg:w-auto lg:pb-20"
             >
-              <h3 className="text-xs font-bold text-[#4FC3F7] tracking-[0.4em] mb-4 lg:mb-6 uppercase font-heading">03 / IT CONSULTING</h3>
+              <h3 className="text-xs font-bold text-primary-light tracking-[0.4em] mb-4 lg:mb-6 uppercase font-heading">03 / IT CONSULTING</h3>
               <div className="mb-4 lg:mb-8">
                 <h2 className="text-2xl lg:text-4xl font-black text-white leading-tight tracking-widest font-heading uppercase">
                   WEB・システム支援

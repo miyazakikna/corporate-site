@@ -324,7 +324,7 @@ export const ItConsulting = () => {
                     className="h-8 md:h-12 w-auto"
                   />
                 </div>
-                <span className="text-[#4FC3F7] whitespace-nowrap">にお任せください</span>
+                <span className="text-primary-light whitespace-nowrap">にお任せください</span>
               </div>
             </h2>
           </motion.div>
@@ -637,7 +637,7 @@ export const ItConsulting = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-12 md:mb-16"
           >
-            <p className="text-[10px] md:text-xs tracking-[0.3em] text-[#4FC3F7] uppercase font-heading font-bold mb-3">
+            <p className="text-[10px] md:text-xs tracking-[0.3em] text-primary-light uppercase font-heading font-bold mb-3">
               FLOW
             </p>
             <h2 className="text-2xl md:text-4xl font-bold text-white font-heading">
@@ -656,8 +656,8 @@ export const ItConsulting = () => {
               >
                 {/* ステップ番号＆ライン */}
                 <div className="flex flex-col items-center">
-                  <div className="w-10 h-10 rounded-full bg-[#4FC3F7]/10 border border-[#4FC3F7]/30 flex items-center justify-center shrink-0">
-                    <span className="text-[11px] font-bold text-[#4FC3F7] font-heading">
+                  <div className="w-10 h-10 rounded-full bg-primary-light/10 border border-primary-light/30 flex items-center justify-center shrink-0">
+                    <span className="text-[11px] font-bold text-primary-light font-heading">
                       {step.step}
                     </span>
                   </div>

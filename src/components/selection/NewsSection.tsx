@@ -59,16 +59,16 @@ export default function NewsSection() {
               >
                 <div className="text-white/40 text-sm font-light tracking-widest w-32 font-heading">{item.date}</div>
                 <div className="flex-1 pr-12 relative">
-                  <div className="inline-block px-3 py-1 bg-[#4FC3F7]/10 text-[#4FC3F7] text-[9px] font-bold tracking-[0.2em] rounded-full mb-3 uppercase font-heading">
+                  <div className="inline-block px-3 py-1 bg-primary-light/10 text-primary-light text-[9px] font-bold tracking-[0.2em] rounded-full mb-3 uppercase font-heading">
                     {item.category}
                   </div>
-                  <h3 className={`text-lg md:text-xl font-medium !text-white leading-snug transition-colors ${isLink ? 'group-hover:text-[#4FC3F7]' : ''}`}>
+                  <h3 className={`text-lg md:text-xl font-medium !text-white leading-snug transition-colors ${isLink ? 'group-hover:text-primary-light' : ''}`}>
                     {item.title}
                   </h3>
 
                   {isLink && (
                     <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white group-hover:text-[#4FC3F7] transition-colors">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white group-hover:text-primary-light transition-colors">
                         <line x1="7" y1="17" x2="17" y2="7"></line>
                         <polyline points="7 7 17 7 17 17"></polyline>
                       </svg>

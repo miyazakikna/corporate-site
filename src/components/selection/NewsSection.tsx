@@ -62,7 +62,7 @@ export default function NewsSection() {
                   <div className="inline-block px-3 py-1 bg-primary-light/10 text-primary-light text-[9px] font-bold tracking-[0.2em] rounded-full mb-3 uppercase font-heading">
                     {item.category}
                   </div>
-                  <h3 className={`text-lg md:text-xl font-medium !text-white leading-snug transition-colors ${isLink ? 'group-hover:text-primary-light' : ''}`}>
+                  <h3 className={`text-lg md:text-xl font-medium text-white leading-snug transition-colors ${isLink ? 'group-hover:text-primary-light' : ''}`}>
                     {item.title}
                   </h3>
 

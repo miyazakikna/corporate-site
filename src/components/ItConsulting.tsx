@@ -728,13 +728,13 @@ export const ItConsulting = () => {
                 animate={isCtaInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                <a
+                <Link
                   href="/contact"
                   className="group inline-flex items-center justify-center gap-3 px-12 py-5 bg-primary text-white font-bold tracking-widest text-sm rounded-full hover:bg-secondary transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-secondary/30 hover:-translate-y-1"
                 >
                   無料相談はこちら
                   <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">→</span>
-                </a>
+                </Link>
               </motion.div>
             </div>
           </div>

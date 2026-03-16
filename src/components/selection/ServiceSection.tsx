@@ -167,7 +167,7 @@ export default function ServiceSection() {
                     transformOrigin: 'bottom center',
                     transformStyle: 'preserve-3d',
                     boxShadow: '0 15px 30px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1)',
-                    zIndex: 15,
+                    zIndex: 30,
                   }}
                   animate={{
                     rotate: 15,
@@ -183,7 +183,7 @@ export default function ServiceSection() {
                   transition={{ duration: 0.8, ease: 'easeOut' }}
                 >
                   <Link href="https://with-trainer.com/trainers/hiroki-ono" target="_blank" rel="noopener noreferrer">
-                    <img src="/service/wt-trainer1.png" alt="トレーナー" className="w-full h-full object-cover" />
+                    <img src="/service/wt-trainer3.png" alt="トレーナー" className="w-full h-full object-cover" />
                   </Link>
                 </motion.div>
 
@@ -210,12 +210,12 @@ export default function ServiceSection() {
                   transition={{ duration: 0.8, ease: 'easeOut' }}
                 >
                   <Link href="https://with-trainer.com/trainers/koki-ito" target="_blank" rel="noopener noreferrer">
-                    <img src="/service/wt-trainer2.png" alt="トレーナー" className="w-full h-full object-cover" />
+                    <img src="/service/wt-trainer1.png" alt="トレーナー" className="w-full h-full object-cover" />
                   </Link>
                 </motion.div>
 
                 {/* カード1（正面・中央） */}
-                {/* <motion.div
+                <motion.div
                   className="absolute inset-0 rounded-2xl overflow-hidden cursor-pointer"
                   style={{
                     transformOrigin: 'bottom center',
@@ -224,11 +224,14 @@ export default function ServiceSection() {
                     zIndex: 20,
                   }}
                   animate={{ rotate: 0, x: 0, y: 0 }}
-                  whileHover={{ y: -20, transition: { duration: 0.3 } }}
+                  whileHover={{
+                    y: -20,
+                    transition: { duration: 0.3 }
+                  }}
                   transition={{ duration: 0.8, ease: 'easeOut' }}
                 >
-                  <img src="/service/wt-trainer1.png" alt="トレーナー" className="w-full h-full object-cover" />
-                </motion.div> */}
+                  <img src="/service/wt-trainer2.png" alt="トレーナー" className="w-full h-full object-cover" />
+                </motion.div>
               </div>
             </motion.div>
           </div>

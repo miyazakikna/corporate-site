@@ -1,6 +1,7 @@
 import '@/styles/global.css'
 import type { Metadata } from 'next';
 import { Outfit, Zen_Kaku_Gothic_New } from 'next/font/google';
+import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { GoogleTagManager } from '@next/third-parties/google'
 
@@ -10,22 +11,28 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  title: '株式会社Amelio',
+  metadataBase: new URL('https://amelio-tech.com'),
+  title: {
+    default: '株式会社Amelio | テクノロジーと現場伴走で挑戦を支える',
+    template: '%s | 株式会社Amelio',
+  },
   description:
-    'あなたの挑戦を支える土台となる。株式会社Amelioは、テクノロジーで可能性を最大化し、成長が続く仕組みを構築。フィットネス業界向けシステム「FIT KARTE」やトレーナー支援「WITH TRAINER」を展開しています。',
+    '株式会社Amelio（アメリオ）は、経営者の右腕となる業務支援（IT・Web制作・業務DX・バックオフィス伴走）や、フィットネス業界向けSaaS「FIT KARTE」、トレーナー支援「WITH TRAINER」を展開しています。',
   keywords: [
     'Amelio',
     '株式会社Amelio',
     'アメリオ',
-    'MAKES GROWTH SCALABLE',
+    '業務支援',
+    'ITパートナー',
+    '業務DX',
+    'Web制作',
+    'システム開発',
     'FIT KARTE',
     'フィットカルテ',
     'WITH TRAINER',
     'ウィズトレーナー',
     'フィットネスDX',
     'ジム経営支援',
-    'トレーナーブランディング',
-    'システム開発',
   ],
   alternates: {
     canonical: 'https://amelio-tech.com',
@@ -35,9 +42,9 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: '株式会社Amelio',
+    title: '株式会社Amelio | テクノロジーと現場伴走で挑戦を支える',
     description:
-      'あなたの挑戦を支える土台となる。株式会社Amelioは、テクノロジーで可能性を最大化し、成長が続く仕組みを構築。フィットネス業界向けシステム「FIT KARTE」やトレーナー支援「WITH TRAINER」を展開しています。',
+      '株式会社Amelio（アメリオ）は、経営者の右腕となる業務支援（IT・Web制作・業務DX・バックオフィス伴走）や、フィットネス業界向けSaaS「FIT KARTE」、トレーナー支援「WITH TRAINER」を展開しています。',
     url: 'https://amelio-tech.com',
     siteName: '株式会社Amelio',
     images: [
@@ -53,9 +60,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '株式会社Amelio',
+    title: '株式会社Amelio | テクノロジーと現場伴走で挑戦を支える',
     description:
-      'あなたの挑戦を支える土台となる。株式会社Amelioは、テクノロジーで可能性を最大化し、成長が続く仕組みを構築。',
+      '株式会社Amelio（アメリオ）は、経営者の右腕となる業務支援（IT・Web制作・業務DX・バックオフィス伴走）や、フィットネス業界向けSaaS「FIT KARTE」、トレーナー支援「WITH TRAINER」を展開しています。',
     images: ['/ogp.png'],
   },
   icons: {
@@ -91,6 +98,7 @@ export default function RootLayout({
   return (
     <html lang="ja" className={`${outfit.variable} ${zenKakuGothic.variable}`}>
       <body className="overflow-x-hidden bg-slate-50">
+        <Header />
         <main>{children}</main>
         <Footer />
       </body>

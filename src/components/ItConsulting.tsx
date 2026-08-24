@@ -96,7 +96,7 @@ const results = [
     id: 'shape-fit-festival-system',
     label: 'チケット販売システム',
     category: 'システム開発',
-    image: '/it/sff.png',
+    image: '/it/sff-app.png',
     summary:
       'イベントのチケット販売・選手エントリー・当日受付管理を一元化したシステムを開発。紙ベースの運営から完全デジタル化を実現しました。',
     metrics: [

@@ -13,14 +13,14 @@ export function Footer() {
       links: [
         { label: 'FIT KARTE', href: 'https://fit-karte.com' },
         { label: 'WITH TRAINER', href: 'https://with-trainer.com' },
-        { label: 'WEB・システム支援', href: '/it-consulting' },
+        { label: '業務支援', href: '/it-partner' },
       ],
     },
     {
       title: 'Company',
       links: [
         { label: '会社概要', href: '/company' },
-        { label: 'ニュース', href: '/#news' },
+        { label: '代表について', href: '/profile/miyazaki' },
         { label: 'プライバシーポリシー', href: '/privacy-policy' },
       ],
     }

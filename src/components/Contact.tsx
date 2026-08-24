@@ -2,8 +2,9 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { AlertCircle } from 'lucide-react';
 import SubPageHeader from '@/components/SubPageHeader';
 import { submitContactForm } from '@/libs/email';
 import { ContactForm } from '@/types';
@@ -18,26 +19,36 @@ export const Contact = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
+    setValue,
   } = useForm<{
     name: string;
     company?: string;
     email: string;
     inquiryType: string;
     message: string;
+    notSales: boolean;
   }>({
     defaultValues: {
-      inquiryType: 'WEB・システム開発のご相談'
+      inquiryType: '業務支援のご相談',
+      notSales: false,
     }
   });
 
+  useEffect(() => {
+    const inquiryType = new URLSearchParams(window.location.search).get('type');
+    if (inquiryType === 'it-partner') {
+      setValue('inquiryType', '業務支援のご相談');
+    }
+  }, [setValue]);
+
   const inquiryTypes = [
+    '業務支援のご相談',
     'FIT KARTE について',
     'WITH TRAINER について',
-    'WEB・システム開発のご相談',
     'パートナーシップ・協業のご相談',
     '採用について',
-    'その他',
+    'その他のお問い合わせ',
   ];
 
   const onSubmit = async (data: {
@@ -109,6 +120,21 @@ export const Contact = () => {
               </div>
             ) : (
               <div className="py-8 md:py-10">
+                {/* 営業・セールスお断りバナー */}
+                <div className="mb-8 rounded-2xl border border-amber-200/90 bg-amber-50/70 p-4 sm:p-5 text-amber-900 shadow-xs">
+                  <div className="flex items-start gap-3">
+                    <AlertCircle className="h-5 w-5 text-amber-600 shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="text-xs sm:text-sm font-bold text-amber-950">
+                        営業・勧誘・セールス等のご提案を目的としたご連絡は固くお断りいたします
+                      </h4>
+                      <p className="mt-1 text-[11px] sm:text-xs leading-relaxed text-amber-800">
+                        当フォームはお客様からのご相談・お問い合わせ専用窓口です。営業・勧誘・セールス等のメッセージを送信いただきましても、返信および対応は一切いたしかねます。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 md:space-y-8">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                     {/* お名前 */}
@@ -119,7 +145,7 @@ export const Contact = () => {
                       <input
                         id="name"
                         type="text"
-                        className={`w-full px-5 py-3.5 bg-slate-50 border ${errors.name ? 'border-red' : 'border-slate-200'} rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300 placeholder:text-slate-300 text-slate-700`}
+                        className={`w-full px-5 py-3.5 bg-slate-50 border ${errors.name ? 'border-red' : 'border-slate-200'} rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300 placeholder:text-slate-400 text-slate-700`}
                         placeholder="山田 太郎"
                         autoComplete="name"
                         {...register('name', { required: 'お名前を入力してください' })}
@@ -135,7 +161,7 @@ export const Contact = () => {
                       <input
                         id="company"
                         type="text"
-                        className="w-full px-5 py-3.5 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300 placeholder:text-slate-300 text-slate-700"
+                        className="w-full px-5 py-3.5 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300 placeholder:text-slate-400 text-slate-700"
                         placeholder="株式会社サンプル"
                         autoComplete="organization"
                         {...register('company')}
@@ -150,7 +176,7 @@ export const Contact = () => {
                       <input
                         id="email"
                         type="email"
-                        className={`w-full px-5 py-3.5 bg-slate-50 border ${errors.email ? 'border-red' : 'border-slate-200'} rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300 placeholder:text-slate-300 text-slate-700`}
+                        className={`w-full px-5 py-3.5 bg-slate-50 border ${errors.email ? 'border-red' : 'border-slate-200'} rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300 placeholder:text-slate-400 text-slate-700`}
                         placeholder="example@email.com"
                         autoComplete="email"
                         {...register('email', {
@@ -196,11 +222,32 @@ export const Contact = () => {
                     <textarea
                       id="message"
                       rows={6}
-                      className={`w-full px-5 py-3.5 bg-slate-50 border ${errors.message ? 'border-red' : 'border-slate-200'} rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300 placeholder:text-slate-300 text-slate-700 resize-none`}
-                      placeholder="ご相談内容の詳細をご記入ください"
+                      className={`w-full px-5 py-3.5 bg-slate-50 border ${errors.message ? 'border-red' : 'border-slate-200'} rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300 placeholder:text-slate-400 text-slate-700 resize-none leading-relaxed`}
+                      placeholder="ご相談内容の詳細をご記入ください。&#10;（例：業務の効率化について相談したい、Webサイト制作やアプリ開発の概算費用を知りたい、FIT KARTEの導入を検討している、など。ざっくばらんな内容で構いません。）"
                       {...register('message', { required: 'お問い合わせ内容を入力してください' })}
                     ></textarea>
                     {errors.message && <p className="text-red text-xs mt-1 ml-1">{errors.message.message}</p>}
+                  </div>
+
+                  {/* 営業目的ではない確認チェックボックス */}
+                  <div className="rounded-2xl border border-slate-200/80 bg-slate-50/80 p-4 sm:p-5">
+                    <label className="flex items-start gap-3 cursor-pointer group select-none">
+                      <input
+                        type="checkbox"
+                        id="notSales"
+                        className="mt-0.5 h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary/20 cursor-pointer shrink-0"
+                        {...register('notSales', {
+                          required: '営業・セールス目的ではないことのご確認にチェックをお願いいたします',
+                        })}
+                      />
+                      <span className="text-xs sm:text-sm font-bold text-secondary leading-snug">
+                        営業・勧誘・セールス目的のお問い合わせではないことを確認しました
+                        <span className="bg-red/10 text-red text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider ml-2">必須</span>
+                      </span>
+                    </label>
+                    {errors.notSales && (
+                      <p className="text-red text-xs mt-2 ml-7">{errors.notSales.message}</p>
+                    )}
                   </div>
 
                   {submitStatus === 'error' && (
@@ -209,11 +256,11 @@ export const Contact = () => {
                     </div>
                   )}
 
-                  <div className="pt-4">
+                  <div className="pt-2">
                     <button
                       type="submit"
                       disabled={submitStatus === 'loading'}
-                      className="w-full inline-flex items-center justify-center px-10 py-5 bg-secondary text-white font-bold tracking-[0.2em] text-base rounded-full hover:bg-secondary/90 disabled:bg-slate-300 disabled:cursor-not-allowed transition-all duration-300 shadow-lg shadow-black/5"
+                      className="w-full inline-flex items-center justify-center px-10 py-4.5 bg-gradient-to-r from-primary via-[#0055b3] to-primary bg-[length:200%_auto] text-white font-black tracking-widest text-base rounded-full hover:bg-right disabled:bg-slate-300 disabled:cursor-not-allowed transition-all duration-300 shadow-[0_12px_28px_rgba(0,102,204,0.25)] hover:shadow-[0_16px_36px_rgba(0,102,204,0.35)] cursor-pointer"
                     >
                       {submitStatus === 'loading' ? (
                         <span className="flex items-center gap-3">
@@ -227,7 +274,7 @@ export const Contact = () => {
                         "同意して送信する"
                       )}
                     </button>
-                    <p className="text-[11px] text-slate-400 text-center mt-8">
+                    <p className="text-[11px] text-slate-400 text-center mt-6">
                       ※送信いただいた内容は、弊社のプライバシーポリシーに従い厳重に管理されます。<br className="hidden md:block" />
                       お問い合わせ送信により、各規約に同意したものとみなされます。
                     </p>

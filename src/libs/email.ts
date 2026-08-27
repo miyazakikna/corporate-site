@@ -1,6 +1,7 @@
 'use server'
 import { EMAIL_TEMPLATE_CONFIG, EMAIL_TEMPLATE } from '@/app/constants/email'
 import { ContactForm } from '@/types';
+import { isLikelyContactSpam } from '@/libs/contactSpam';
 import { Resend } from 'resend';
 import React from 'react';
 
@@ -9,6 +10,15 @@ const FROM_ADDRESS = 'noreply@amelio-tech.com';
 const TO_ADDRESS = 'contact@amelio-tech.com';
 
 export const submitContactForm = async (data: ContactForm) => {
+  if (isLikelyContactSpam({
+    companyName: data.company,
+    personName: data.name,
+    message: data.message,
+  })) {
+    console.warn('[contact-spam] Suppressed a likely automated submission');
+    return { success: true, message: "お問い合わせを受け付けました" };
+  }
+
   try {
     // 1. 管理者への通知メール
     await resend.emails.send({

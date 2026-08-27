@@ -242,7 +242,7 @@ export function ItPartner() {
                   href="/contact?type=it-partner"
                   className="group flex w-full items-center justify-between rounded-full bg-gradient-to-r from-[#ff9a28] to-[#ff8510] py-3.5 pl-6 pr-2.5 text-base font-black text-white shadow-[0_12px_26px_rgba(255,133,16,0.35)] transition-all duration-300 hover:shadow-[0_16px_32px_rgba(255,133,16,0.45)] sm:pl-8 sm:text-lg"
                 >
-                  <span>まずは困りごとを相談する</span>
+                  <span>まずは困りごとを相談</span>
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-[#ff8510] shadow-sm transition-transform duration-300 group-hover:translate-x-1 sm:h-10 sm:w-10">
                     <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
                   </span>
@@ -304,7 +304,7 @@ export function ItPartner() {
                     href="/contact?type=it-partner"
                     className="group inline-flex items-center gap-4 rounded-full bg-gradient-to-r from-[#ff9a28] to-[#ff8510] py-3.5 pl-7 pr-3 text-base font-black text-white shadow-[0_12px_28px_rgba(255,133,16,0.35)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_34px_rgba(255,133,16,0.45)] sm:pl-9 sm:text-lg"
                   >
-                    <span>まずは困りごとを相談する</span>
+                    <span>まずは困りごとを相談</span>
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-[#ff8510] shadow-sm transition-transform duration-300 group-hover:translate-x-1 sm:h-11 sm:w-11">
                       <ArrowRight className="h-5 w-5" />
                     </span>
@@ -563,7 +563,7 @@ export function ItPartner() {
                 href="/contact?type=it-partner"
                 className="group relative inline-flex items-center justify-center gap-3.5 rounded-full bg-gradient-to-r from-primary via-[#0055b3] to-primary bg-[length:200%_auto] px-9 py-4.5 text-base font-black text-white shadow-[0_16px_36px_rgba(0,102,204,0.35)] transition-all duration-300 hover:-translate-y-1 hover:bg-right hover:shadow-[0_20px_44px_rgba(0,102,204,0.45)] sm:px-12 sm:py-5 sm:text-lg"
               >
-                <span>まずは困りごとを相談する</span>
+                <span>まずは困りごとを相談</span>
                 <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1.5 sm:h-6 sm:w-6" />
               </Link>
             </div>
@@ -613,7 +613,7 @@ export function ItPartner() {
                 href="/contact?type=it-partner"
                 className="inline-flex shrink-0 items-center gap-3 rounded-full bg-white px-7 py-4 text-sm font-bold text-primary shadow-[0_16px_34px_rgba(0,0,0,0.15)] transition-all hover:-translate-y-1 md:px-9"
               >
-                まずは困りごとを相談する
+                まずは困りごとを相談
                 <ArrowRight className="h-5 w-5" />
               </Link>
             </div>

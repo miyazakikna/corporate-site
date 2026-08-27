@@ -172,7 +172,7 @@ export function ItPartnerResults({
             href="/contact?type=it-partner"
             className="group relative inline-flex items-center justify-center gap-3.5 rounded-full bg-gradient-to-r from-primary via-[#0055b3] to-primary bg-[length:200%_auto] px-9 py-4.5 text-base font-black text-white shadow-[0_16px_36px_rgba(0,102,204,0.35)] transition-all duration-300 hover:-translate-y-1 hover:bg-right hover:shadow-[0_20px_44px_rgba(0,102,204,0.45)] sm:px-12 sm:py-5 sm:text-lg"
           >
-            <span>まずは困りごとを相談する</span>
+            <span>まずは困りごとを相談</span>
             <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1.5 sm:h-6 sm:w-6" />
           </Link>
         </div>

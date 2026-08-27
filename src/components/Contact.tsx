@@ -10,7 +10,7 @@ import { submitContactForm } from '@/libs/email';
 import { ContactForm } from '@/types';
 
 export const Contact = () => {
-  const sectionRef = useRef(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
@@ -41,6 +41,12 @@ export const Contact = () => {
       setValue('inquiryType', '業務支援のご相談');
     }
   }, [setValue]);
+
+  useEffect(() => {
+    if (submitStatus === 'success') {
+      sectionRef.current?.scrollIntoView({ block: 'start', behavior: 'auto' });
+    }
+  }, [submitStatus]);
 
   const inquiryTypes = [
     '業務支援のご相談',
@@ -89,7 +95,7 @@ export const Contact = () => {
         ]}
       />
 
-      <section className="py-6 md:py-10" ref={sectionRef}>
+      <section className="scroll-mt-20 py-6 md:scroll-mt-24 md:py-10" ref={sectionRef}>
         <div className="mx-auto max-w-4xl px-6 md:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

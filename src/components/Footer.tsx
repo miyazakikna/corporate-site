@@ -22,6 +22,7 @@ export function Footer() {
         { label: '会社概要', href: '/company' },
         { label: '代表について', href: '/profile/miyazaki' },
         { label: 'プライバシーポリシー', href: '/privacy-policy' },
+        { label: '特定商取引法に基づく表記', href: '/tokusho' },
       ],
     }
   ];

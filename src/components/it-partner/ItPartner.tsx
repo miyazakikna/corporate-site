@@ -385,6 +385,62 @@ export function ItPartner() {
           </div>
         </section>
 
+        {/* 自社プロダクト紹介バナー（FIT KARTE） */}
+        <section className="bg-white py-6 md:py-10">
+          <div className="mx-auto max-w-6xl px-6 md:px-10">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.5 }}
+              className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-secondary via-[#072f57] to-primary p-6 text-white shadow-[0_16px_40px_rgba(1,22,39,0.12)] md:rounded-3xl md:p-8"
+            >
+              {/* 装飾の背景サークル */}
+              <div className="pointer-events-none absolute -right-12 -top-12 h-56 w-56 rounded-full bg-white/5 blur-xl" />
+              <div className="pointer-events-none absolute -bottom-10 right-1/3 h-40 w-40 rounded-full bg-blue-400/10 blur-xl" />
+
+              <div className="relative z-10 flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+                {/* 左側：ロゴ・テキスト情報 */}
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/10 p-2.5 backdrop-blur-sm border border-white/20 shadow-inner">
+                    <Image
+                      src="/service/fk-brand-logo.png"
+                      alt="FIT KARTE"
+                      width={32}
+                      height={32}
+                      className="object-contain"
+                    />
+                  </div>
+                  <div>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <h3 className="text-lg font-black tracking-tight text-white sm:text-xl">
+                        FIT KARTE
+                      </h3>
+                      <span className="hidden text-xs text-white/70 sm:inline">
+                        — フィットネスジム向け管理プラットフォーム
+                      </span>
+                    </div>
+                    <p className="mt-1 text-xs text-white/80 sm:text-sm">
+                      会員管理・予約・決済・カルテ・売上分析を完全自社開発・運営しています。
+                    </p>
+                  </div>
+                </div>
+
+                {/* 右側：リンクボタン */}
+                <a
+                  href="https://fit-karte.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-5 py-2.5 text-xs font-bold text-primary shadow-sm transition-all duration-300 hover:bg-blue-50 hover:shadow-md hover:-translate-y-0.5 sm:px-6 sm:py-3 sm:text-sm"
+                >
+                  <span>サービスサイト</span>
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+                </a>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
         <ItPartnerResults showCta={true} />
 
         <section id="profile" className="scroll-mt-24 py-24 md:py-32">
@@ -414,13 +470,13 @@ export function ItPartner() {
                 {/* 背景の柔らかな光彩 */}
                 <div className="absolute -inset-4 -z-10 rounded-[40px] bg-gradient-to-tr from-blue-100/60 via-sky-50/40 to-transparent blur-2xl" />
 
-                <div className="relative aspect-square w-full max-w-[360px] mx-auto overflow-hidden rounded-[32px] border border-slate-100/80 bg-gradient-to-b from-[#edf6fc] via-[#f7fbff] to-[#e6f1fa] shadow-[0_16px_40px_rgba(1,22,39,0.08)] sm:aspect-[4/4.5] sm:max-w-none">
+                <div className="relative aspect-square w-full max-w-[360px] mx-auto overflow-hidden rounded-[32px] border border-slate-100/80 shadow-[0_16px_40px_rgba(1,22,39,0.08)] sm:aspect-[4/4.5] sm:max-w-none">
                   <Image
-                    src="/it-partner/miyazaki-profile.png"
+                    src="/it-partner/miyazaki-icon.jpeg"
                     alt="宮崎 賢治"
                     fill
                     sizes="(max-width: 1024px) 90vw, 420px"
-                    className="object-cover object-top translate-y-4 scale-105 drop-shadow-[0_16px_20px_rgba(1,22,39,0.08)] sm:translate-y-6"
+                    className="object-cover object-center"
                   />
                 </div>
               </motion.div>

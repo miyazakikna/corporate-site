@@ -272,14 +272,14 @@ export function MiyazakiProfile() {
           <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-14">
             {/* 左側：ポートレート写真 */}
             <div className="relative mx-auto w-full max-w-[380px] lg:col-span-5 lg:max-w-none">
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[36px] border border-slate-100/90 bg-gradient-to-b from-[#edf6fc] via-[#f5faff] to-[#e6f1fa] shadow-[0_20px_50px_rgba(1,22,39,0.09)]">
+              <div className="relative aspect-square w-full overflow-hidden rounded-[36px] border border-slate-100/90 shadow-[0_20px_50px_rgba(1,22,39,0.09)]">
                 <Image
-                  src="/it-partner/miyazaki-profile.png"
+                  src="/it-partner/miyazaki-icon.jpeg"
                   alt="宮崎 賢治"
                   fill
                   priority
                   sizes="(max-width: 1024px) 90vw, 450px"
-                  className="object-cover object-top translate-y-3 scale-105 drop-shadow-[0_16px_24px_rgba(1,22,39,0.1)] sm:translate-y-5"
+                  className="object-cover object-center"
                 />
               </div>
             </div>

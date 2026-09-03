@@ -37,7 +37,7 @@ const personJsonLd = {
     url: 'https://amelio-tech.com',
   },
   url: 'https://amelio-tech.com/profile/miyazaki',
-  image: 'https://amelio-tech.com/it-partner/miyazaki.png',
+  image: 'https://amelio-tech.com/it-partner/miyazaki-icon.jpeg',
 };
 
 export default function MiyazakiProfilePage() {
